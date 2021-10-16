@@ -1,0 +1,42 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": false
+  },
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "biz-ui": {
+      "projectType": "library",
+      "root": "projects/biz-ui",
+      "sourceRoot": "projects/biz-ui/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/biz-ui/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/biz-ui/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/biz-ui/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/biz-ui/src/test.ts",
+            "tsConfig": "projects/biz-ui/tsconfig.spec.json",
+            "karmaConfig": "projects/biz-ui/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "biz-ui"
+}
