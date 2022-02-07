@@ -1,0 +1,16 @@
+<mat-form-field appearance="standard" floatLabel="never">
+  <mat-label>input</mat-label>
+  <input matInput #inputRef placeholder="hello"   (cdkAutofill)="inputCtlAutoFilled = $event.isAutofilled">
+  <!--      <mat-error *ngIf="form.get('hello')?.invalid && (form.get('hello')?.dirty || form.get('hello')?.touched)">-->
+  <!--        {{form.get('hello')?.errors | json}}-->
+  <!--      </mat-error>-->
+<!--  <mat-hint  *ngIf="formCtl.dirty && formCtl?.errors?.['required']">-->
+<!--    Name is required.-->
+<!--  </mat-hint>-->
+<!--  <mat-error  *ngIf="formCtl.dirty && formCtl?.errors?.['minlength']">-->
+<!--    Name must be at least 4 characters long.-->
+<!--  </mat-error>-->
+<!--  <mat-hint  *ngIf="formCtl.dirty && formCtl?.errors?.['forbiddenName']">-->
+<!--    Name cannot be Bob.-->
+<!--  </mat-hint >-->
+</mat-form-field>

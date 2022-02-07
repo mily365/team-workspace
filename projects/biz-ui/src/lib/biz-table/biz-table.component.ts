@@ -11,7 +11,7 @@ import {
 import {MatTable} from "@angular/material/table";
 import {Observable, of} from "rxjs";
 import {ActionInfo, BizDataService, ColumnInfo} from "../biz-data.service";
-import {concatAll, map, take, tap} from "rxjs/operators";
+import {concatAll, filter, map, take, tap} from "rxjs/operators";
 
 @Component({
   selector: 'biz-table',
@@ -30,7 +30,7 @@ export class BizTableComponent<T> implements AfterContentInit,MetaDataForTable {
   @Input() bizCode: string;
   @Input() modelName: string;
   @Input() toDisplayColumns: ColumnInfo[];
-  @Input() displayedColumns: string[];
+  displayedColumns: string[];
   @Input() actions: ActionInfo[];
   @Input() pageSizeOptions:number[]=[5, 10, 25, 100];
   resultCount:number=100;
@@ -72,8 +72,12 @@ export class BizTableComponent<T> implements AfterContentInit,MetaDataForTable {
       if(allInOneFind.length>0 && this.toDisplayColumns.length>=3){
         throw new Error("biz table surport only one allInOne column!")
       }
-      this.displayedColumns=this.toDisplayColumns.map(c=>c.identity);
-
+      //先从本地缓存中查询可显示的列 todo
+      if(!this.displayedColumns){
+        this.displayedColumns=this.toDisplayColumns.map(c=>c.identity);
+      }
+      // this.displayedColumns=['name']
+      console.log(this.displayedColumns)
       if(!this.dataSource){
          this.fetchListData();
       }
@@ -105,7 +109,7 @@ export class BizTableComponent<T> implements AfterContentInit,MetaDataForTable {
   actionInfos(): Observable<ActionInfo[]> {
     return this.bizDataServe.fetchListMetaData("x",'solution').pipe(
       tap((s)=>console.log(s)),
-      map(item=>item.actions)
+      map(item=>item.actions.filter(it=>it.inWhere=="list"))
     )
   }
 }

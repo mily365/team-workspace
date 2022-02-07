@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import {of} from "rxjs";
-import {ActionInfo, ColumnInfo} from "./biz-data.service";
-
-
+import {ActionInfo, ColumnInfo, ControlInfo, GroupInfo} from "./biz-data.service";
 @Injectable({
   providedIn: 'root',
 })
@@ -26,21 +24,98 @@ export class InMemoryDataService implements InMemoryDbService {
         id:1,
         bizCode:"pos",
         name:'posList',
-        cols:[
+        cols:[//从元数据中解析formType是List的分组
           new ColumnInfo('position','position','',true,false,true,0),
           new ColumnInfo('weight','weight','',false,false,false,1),
           new ColumnInfo('symbol','symbol','',false,false,false,2),
           new ColumnInfo('name','name','',false,false,false,3),
           new ColumnInfo('Actions','actions','',false,true,false,4)
-        ],actions:[
-          new ActionInfo('add','add',''),
-          new ActionInfo('edit','edit',''),
-          new ActionInfo('delete','delete',''),
-          new ActionInfo('detail','detail','')
+        ],actions:[//从元数据中解析formType是Actions的分组
+          new ActionInfo('add','add','',"list"),
+          new ActionInfo('edit','edit','',"list"),
+          new ActionInfo('delete','delete','',"list"),
+          new ActionInfo('detail','detail','',"editForm")
+        ],
+        searchGroups:[//从元数据中解析formType是SearchForm的分组
+          new GroupInfo("baseinfo","student","基本信息","person",[
+            new ControlInfo({
+              default:"defaultvalue",
+              key:"name",
+              label:"姓名",
+              order:0,
+              controlType:"textbox",
+              validators:["required|必输"],
+            }),
+            new ControlInfo({
+              default:"15",
+              key:"age",
+              label:"年龄",
+              order:1,
+              controlType:"textbox",
+              validators:["required|必输"],
+            }),
+          ]),
+        ],
+        readOnlyGroups:[//从元数据中解析formType是ReadOnlyForm的分组
+          new GroupInfo("baseinfo","student","基本信息","person",[
+            new ControlInfo({
+              default:"defaultvalue",
+              key:"name",
+              label:"姓名",
+              order:0,
+              controlType:"textbox",
+              validators:["required|必输"],
+            }),
+            new ControlInfo({
+              default:"15",
+              key:"age",
+              label:"年龄",
+              order:1,
+              controlType:"textbox",
+              validators:["required|必输"],
+            }),
+          ]),
+        ]
+        ,editGroups:[//从元数据中解析formType是EditForm的分组
+          new GroupInfo("baseinfo","student","基本信息","person",[
+            new ControlInfo({
+              default:"defaultvalue",
+              key:"name",
+              label:"姓名",
+              order:0,
+              controlType:"textbox",
+              validators:["required|必输"],
+            }),
+            new ControlInfo({
+              default:"15",
+              key:"age",
+              label:"年龄",
+              order:1,
+              controlType:"textbox",
+              validators:["required|必输"],
+            }),
+          ]),
+          new GroupInfo("addressinfo","student","地址信息s","person",[
+            new ControlInfo({
+              default:"defaultvalue",
+              key:"street",
+              label:"街道",
+              order:0,
+              controlType:"textbox",
+              validators:["required|必输"],
+            }),
+            new ControlInfo({
+              default:"100100",
+              key:"mailCode",
+              label:"邮编",
+              order:1,
+              controlType:"textbox",
+              validators:["required|必输"],
+            }),
+          ]),
         ]
       }
     ]
-
     return {pos,solutions};
   }
 }

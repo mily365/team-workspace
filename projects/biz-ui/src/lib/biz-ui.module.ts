@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { MatChipsModule } from  '@angular/material/chips';
+
+
+
 import {BizTableComponent} from './biz-table/biz-table.component';
 import { MatTableModule} from  '@angular/material/table';
 import { MatButtonModule} from  '@angular/material/button';
@@ -13,32 +17,47 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatListModule} from "@angular/material/list";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {InMemoryDataService} from "./in-memory-data.service";
-
+import { BizFormComponent } from './biz-form/biz-form.component';
+import {WrapMatInputComponent} from "./biz-form/wrap-mat/wrap-mat-input/wrap-mat-input.component";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {TextFieldModule} from '@angular/cdk/text-field';
+import {WrapChiplistInputComponent} from "./biz-form/wrap-mat/wrap-chiplist-input/wrap-chiplist-input.component";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [
     BizTableComponent,
     BizAppFrameComponent,
+    BizFormComponent,
+    WrapMatInputComponent,
+    WrapChiplistInputComponent
   ],
-    imports: [
-        CommonModule,
-        MatTableModule,
-        MatButtonModule,
-        MatSortModule,
-        MatPaginatorModule,
-        MatIconModule,
-        MatToolbarModule,
-        MatSidenavModule,
-        MatListModule,
-        MatProgressBarModule,
-      // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
-      // and returns simulated server responses.
-      // Remove it when a real server is ready to receive requests.
+  imports: [
+    CommonModule,
+    MatTableModule,
+    MatButtonModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatProgressBarModule,
+    MatFormFieldModule,
+    TextFieldModule,
+    MatChipsModule,
+    MatInputModule,
+    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
+    // and returns simulated server responses.
+    // Remove it when a real server is ready to receive requests.
 
-    ],
+  ],
   exports:[
     BizTableComponent,
     BizAppFrameComponent,
+    WrapMatInputComponent,
+    WrapChiplistInputComponent,
+
   ]
 })
 export class BizUiModule { }
