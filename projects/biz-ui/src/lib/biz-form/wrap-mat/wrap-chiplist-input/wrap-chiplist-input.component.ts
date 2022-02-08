@@ -3,6 +3,7 @@ import {NgControl} from "@angular/forms";
 import {WrapBaseComponent} from "../Wrap-Base-Component";
 import {COMMA, ENTER} from "@angular/cdk/keycodes";
 import {MatChipInputEvent} from "@angular/material/chips";
+import {BizDataService} from "../../../biz-data.service";
 
 @Component({
   selector: 'app-wrap-chiplist-input',
@@ -16,8 +17,8 @@ export class WrapChiplistInputComponent extends WrapBaseComponent implements OnI
   chipListData:[string] ;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
   @Input() addHint:string
-  constructor(@Optional() @Self() public ngControl: NgControl,) {
-     super(ngControl)
+  constructor(@Optional() @Self() public ngControl: NgControl,public bizDataServe:BizDataService) {
+     super(ngControl,bizDataServe)
   }
   add(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();

@@ -1,0 +1,23 @@
+<div>
+<mat-form-field class="example-full-width" appearance="fill">
+  <mat-label>{{label}}</mat-label>
+  <input #inputRef type="text" [placeholder]="placeHolder" matInput  [matAutocomplete]="auto">
+<!--  <mat-hint color="warn" *ngIf="ngControl.dirty && ngControl?.errors?.required">-->
+<!--        Name is required.-->
+<!--  </mat-hint>-->
+  <mat-hint class="mat-error"  *ngIf="(ngControl?.dirty || ngControl?.touched) && ngControl?.hasError('required')">
+    请搜索选择
+  </mat-hint>
+  <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="clearValue()">
+    <mat-icon>close</mat-icon>
+  </button>
+  <button *ngIf="!value" matSuffix mat-icon-button aria-label="Clear">
+    <mat-icon>search</mat-icon>
+  </button>
+  <mat-autocomplete #auto="matAutocomplete"  (optionSelected)="onSelect($event)">
+    <mat-option *ngFor="let option of filteredOptions | async" [value]="option.key" >
+      {{option.displayText}}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>
+</div>

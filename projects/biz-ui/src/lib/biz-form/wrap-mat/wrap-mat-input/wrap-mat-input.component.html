@@ -1,6 +1,13 @@
 <mat-form-field appearance="standard" floatLabel="never">
-  <mat-label>input</mat-label>
-  <input matInput #inputRef placeholder="hello"   (cdkAutofill)="inputCtlAutoFilled = $event.isAutofilled">
+  <mat-label>{{label}}</mat-label>
+  <input matInput #inputRef [placeholder]="placeHolder"   (cdkAutofill)="inputCtlAutoFilled = $event.isAutofilled">
+  <mat-hint class="mat-error"  *ngIf="(ngControl?.dirty || ngControl?.touched) && ngControl?.hasError('required')">
+    不能为空
+  </mat-hint>
+  <mat-hint class="mat-error"  *ngIf="(ngControl?.dirty || ngControl?.touched) && ngControl?.hasError('minlength')">
+<!--    字符最少长度是{{ngControl.getError('minlength')['requiredLength']}}-->
+      {{errorMsg('minlength',ngControl.getError('minlength')['requiredLength']) | async}}
+  </mat-hint>
   <!--      <mat-error *ngIf="form.get('hello')?.invalid && (form.get('hello')?.dirty || form.get('hello')?.touched)">-->
   <!--        {{form.get('hello')?.errors | json}}-->
   <!--      </mat-error>-->

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
-import {Observable, of} from "rxjs";
+import {from, Observable, of} from "rxjs";
 import {concatAll, take, tap} from "rxjs/operators";
 export class ColumnInfo{
   text:string
@@ -106,6 +106,9 @@ export interface Solution{
   readOnlyGroups: GroupInfo[],
   editGroups:GroupInfo[]
 }
+export interface ErrorMsg{
+
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -119,16 +122,27 @@ export class BizDataService {
   buildApiPath(modelName:string){
     return  `api/${modelName}`
   }
-  fetchListMetaData(bizCode:string,modelName:string):Observable<Solution>{
+  fetchSolutionMetaData(bizCode:string):Observable<Solution>{
     //const params ={params:new HttpParams().set("bizCode",bizCode);}
     //this.httpOptions.params=new HttpParams().set("bizCode",bizCode);
-    let urlPath=this.buildApiPath(modelName)
+    let urlPath=this.buildApiPath("solution")
     //远程获取元数据，进行转换为solution
     return this.http.get<any>(this.metaApiUrl,this.httpOptions).pipe(concatAll<any>());
   }
-
   fetchListData(modelName:string):Observable<any>{
     let url=this.buildApiPath(modelName)
     return this.http.get<any>(url,this.httpOptions).pipe();
+  }
+  fetchErrorMsg(errorCode:string,lang:string):Observable<any>{
+     let msgList:{}= {
+      "zh-CN": {
+        "minlength":"最少需要{}个字符",
+        "required":"不能为空"
+      }
+    }
+    // @ts-ignore
+    console.log(msgList[lang][errorCode])
+    //@ts-ignore
+    return  of(msgList[lang][errorCode])
   }
 }

@@ -16,13 +16,15 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatListModule} from "@angular/material/list";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
-import {InMemoryDataService} from "./in-memory-data.service";
 import { BizFormComponent } from './biz-form/biz-form.component';
 import {WrapMatInputComponent} from "./biz-form/wrap-mat/wrap-mat-input/wrap-mat-input.component";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {TextFieldModule} from '@angular/cdk/text-field';
 import {WrapChiplistInputComponent} from "./biz-form/wrap-mat/wrap-chiplist-input/wrap-chiplist-input.component";
 import {MatInputModule} from "@angular/material/input";
+import { WrapMatAutoCompleteComponent } from './biz-form/wrap-mat/wrap-mat-auto-complete/wrap-mat-auto-complete.component';
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import {MatOptionModule} from "@angular/material/core";
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import {MatInputModule} from "@angular/material/input";
     BizAppFrameComponent,
     BizFormComponent,
     WrapMatInputComponent,
-    WrapChiplistInputComponent
+    WrapChiplistInputComponent,
+    WrapMatAutoCompleteComponent
   ],
   imports: [
     CommonModule,
@@ -47,6 +50,9 @@ import {MatInputModule} from "@angular/material/input";
     TextFieldModule,
     MatChipsModule,
     MatInputModule,
+    MatAutocompleteModule,
+    MatAutocompleteModule,
+    MatOptionModule,
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
@@ -57,7 +63,7 @@ import {MatInputModule} from "@angular/material/input";
     BizAppFrameComponent,
     WrapMatInputComponent,
     WrapChiplistInputComponent,
-
+    WrapMatAutoCompleteComponent
   ]
 })
 export class BizUiModule { }

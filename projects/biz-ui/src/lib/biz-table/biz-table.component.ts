@@ -97,7 +97,7 @@ export class BizTableComponent<T> implements AfterContentInit,MetaDataForTable {
   ery columnInfo by biz-code
    */
   columnInfos(): Observable<ColumnInfo[]> {
-    return this.bizDataServe.fetchListMetaData("x",'solution').pipe(
+    return this.bizDataServe.fetchSolutionMetaData("x").pipe(
       tap((s)=>console.log(s)),
       map(item=>item.cols)
     )
@@ -107,7 +107,7 @@ export class BizTableComponent<T> implements AfterContentInit,MetaDataForTable {
     // ])
   }
   actionInfos(): Observable<ActionInfo[]> {
-    return this.bizDataServe.fetchListMetaData("x",'solution').pipe(
+    return this.bizDataServe.fetchSolutionMetaData("x").pipe(
       tap((s)=>console.log(s)),
       map(item=>item.actions.filter(it=>it.inWhere=="list"))
     )

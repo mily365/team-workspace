@@ -11,6 +11,7 @@ import {
 import {AutofillMonitor} from "@angular/cdk/text-field";
 import {ControlValueAccessor, NG_VALUE_ACCESSOR, NgControl} from "@angular/forms";
 import {WrapBaseComponent} from "../Wrap-Base-Component";
+import {BizDataService} from "../../../biz-data.service";
 
 
 
@@ -28,13 +29,15 @@ import {WrapBaseComponent} from "../Wrap-Base-Component";
 })
 export class WrapMatInputComponent extends WrapBaseComponent implements  AfterViewInit, OnDestroy, OnChanges {
   // @ViewChild('inputRef') inputRef:ElementRef;
+  @Input() placeHolder:string
+  @Input() label:string
   @ViewChild('inputRef') inputCtlRef: ElementRef;
   inputCtlRefDom: any;
   inputCtlAutoFilled: boolean = false;
 
-  constructor(private _autofill: AutofillMonitor,@Optional() @Self() public ngControl: NgControl,) {
+  constructor(private _autofill: AutofillMonitor,@Optional() @Self() public ngControl: NgControl,public bizDataServe:BizDataService) {
     // Replace the provider from above with this.
-     super(ngControl)
+     super(ngControl,bizDataServe)
   }
 
   ngOnChanges(changes: SimpleChanges): void {
