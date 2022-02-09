@@ -24,9 +24,33 @@ import {WrapChiplistInputComponent} from "./biz-form/wrap-mat/wrap-chiplist-inpu
 import {MatInputModule} from "@angular/material/input";
 import { WrapMatAutoCompleteComponent } from './biz-form/wrap-mat/wrap-mat-auto-complete/wrap-mat-auto-complete.component';
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
-import {MatOptionModule} from "@angular/material/core";
-import { WarpMultiSelectComponent } from './biz-form/wrap-mat/warp-multi-select/warp-multi-select.component';
+import {MAT_DATE_FORMATS, MAT_DATE_LOCALE, MatOptionModule} from "@angular/material/core";
+import { WrapMultiSelectComponent } from './biz-form/wrap-mat/wrap-multi-select/wrap-multi-select.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { WrapDatePickerComponent } from './biz-form/wrap-mat/wrap-date-picker/wrap-date-picker.component';
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {
+  NgxMatDateAdapter,
+  NgxMatDateFormats,
+  NgxMatDatetimePickerModule
+} from "@angular-material-components/datetime-picker";
+import {
+  CustomNgxDatetimeAdapter,
+  MAT_MOMENT_DATE_ADAPTER_OPTIONS
+} from "./biz-form/wrap-mat/wrap-date-picker/custom-moment-adapter";
+import {NGX_MAT_MOMENT_DATE_ADAPTER_OPTIONS} from "@angular-material-components/moment-adapter";
+const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
+  parse: {
+    dateInput: 'l, LTS'
+  },
+  display: {
+    dateInput: 'YYYY-MM-DD HH:mm:ss',
+    monthYearLabel: 'MMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY',
+  }
+};
+
 
 @NgModule({
   declarations: [
@@ -36,7 +60,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     WrapMatInputComponent,
     WrapChiplistInputComponent,
     WrapMatAutoCompleteComponent,
-    WarpMultiSelectComponent
+    WrapMultiSelectComponent,
+    WrapDatePickerComponent
   ],
   imports: [
     CommonModule,
@@ -57,18 +82,29 @@ import {ReactiveFormsModule} from "@angular/forms";
     MatAutocompleteModule,
     MatOptionModule,
     ReactiveFormsModule,
+    NgxMatDatetimePickerModule,
+    MatDatepickerModule,
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
 
   ],
-  exports:[
+  exports: [
     BizTableComponent,
     BizAppFrameComponent,
     WrapMatInputComponent,
     WrapChiplistInputComponent,
     WrapMatAutoCompleteComponent,
-    WarpMultiSelectComponent
+    WrapMultiSelectComponent,
+    WrapDatePickerComponent
+  ],
+  providers:[
+    {
+      provide: NgxMatDateAdapter,
+      useClass: CustomNgxDatetimeAdapter,
+      deps: [MAT_DATE_LOCALE, NGX_MAT_MOMENT_DATE_ADAPTER_OPTIONS]
+    },
+    {provide: MAT_DATE_FORMATS, useValue: CUSTOM_DATE_FORMATS },
   ]
 })
 export class BizUiModule { }
