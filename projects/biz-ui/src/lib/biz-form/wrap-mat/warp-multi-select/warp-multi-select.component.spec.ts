@@ -1,22 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {
+import { WarpMultiSelectComponent } from './warp-multi-select.component';
 
-} from './wrap-chiplist-input.component';
-
-describe('WrapChiplistInputComponent', () => {
-  let component: WrapChiplistInputComponent;
-  let fixture: ComponentFixture<WrapChiplistInputComponent>;
+describe('WarpMultiSelectComponent', () => {
+  let component: WarpMultiSelectComponent;
+  let fixture: ComponentFixture<WarpMultiSelectComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WrapChiplistInputComponent ]
+      declarations: [ WarpMultiSelectComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WrapChiplistInputComponent);
+    fixture = TestBed.createComponent(WarpMultiSelectComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

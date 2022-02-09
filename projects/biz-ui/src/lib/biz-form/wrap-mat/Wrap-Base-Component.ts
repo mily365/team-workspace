@@ -34,7 +34,7 @@ export abstract class WrapBaseComponent implements ComponentDataInterface, Contr
     registerOnTouched(fn: any): void {
       this.onTouch=fn;
     }
-    errorMsg(errCode:string,toReplace:string):Observable<any>{
+    errorMsg(errCode:string,toReplace:string=""):Observable<any>{
       console.log(errCode,"xxxxxxxxxxxxxxxxxx",toReplace)
        let lang="zh-CN"
        return this.bizDataServe.fetchErrorMsg(errCode,lang)

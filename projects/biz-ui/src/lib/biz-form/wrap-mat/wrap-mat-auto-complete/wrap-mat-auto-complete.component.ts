@@ -7,8 +7,10 @@ import {MatAutocompleteSelectedEvent} from "@angular/material/autocomplete";
 import {debounce, debounceTime, filter, pluck, switchMap,tap} from "rxjs/operators";
 import {flatMap} from "rxjs/internal/operators";
 import {BizDataService} from "../../../biz-data.service";
+import {MatChipInputEvent} from "@angular/material/chips";
+import {COMMA, ENTER} from "@angular/cdk/keycodes";
 
-export interface OptionData{
+interface OptionData{
   key:string
   displayText:string
 }
@@ -29,14 +31,17 @@ export class WrapMatAutoCompleteComponent  extends WrapBaseComponent implements 
   @Input()
   placeHolder:string
   _inputCtlRefDom: any;
+  readonly separatorKeysCodes = [ENTER, COMMA] as const;
   constructor(@Optional() @Self() public ngControl: NgControl,public bizDataServe:BizDataService) {
     super(ngControl,bizDataServe)
+
   }
+
+
   onSelect($evt:MatAutocompleteSelectedEvent){
     this._inputCtlRefDom.value=$evt.option.viewValue
     this.value=$evt.option.value+"_"+$evt.option.viewValue
     this.onChange(this.value)
-    console.log(this.ngControl.errors)
   }
   ngOnInit(): void {
     this.fetchData()
@@ -91,14 +96,14 @@ export class WrapMatAutoCompleteComponent  extends WrapBaseComponent implements 
       //首次加载原始控件框架还没准备好
       //首次加载，先有初始值
       setTimeout(()=>{
-        let array=obj.split("_")
-        if(array.length==2){
-          this.value=obj
-          this._inputCtlRefDom.value=array[1]
-        }else {
-          this.value=""
-          this._inputCtlRefDom.value=""
-        }
+          let array=obj.split("_")
+          if(array.length==2){
+            this.value=obj
+            this._inputCtlRefDom.value=array[1]
+          }else {
+            this.value=""
+            this._inputCtlRefDom.value=""
+          }
       })
     }
   }

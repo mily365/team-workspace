@@ -2,7 +2,7 @@
   <mat-label>{{label}}</mat-label>
   <input matInput #inputRef [placeholder]="placeHolder"   (cdkAutofill)="inputCtlAutoFilled = $event.isAutofilled">
   <mat-hint class="mat-error"  *ngIf="(ngControl?.dirty || ngControl?.touched) && ngControl?.hasError('required')">
-    不能为空
+    {{errorMsg('required') | async}}
   </mat-hint>
   <mat-hint class="mat-error"  *ngIf="(ngControl?.dirty || ngControl?.touched) && ngControl?.hasError('minlength')">
 <!--    字符最少长度是{{ngControl.getError('minlength')['requiredLength']}}-->

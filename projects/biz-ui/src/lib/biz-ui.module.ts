@@ -25,6 +25,8 @@ import {MatInputModule} from "@angular/material/input";
 import { WrapMatAutoCompleteComponent } from './biz-form/wrap-mat/wrap-mat-auto-complete/wrap-mat-auto-complete.component';
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatOptionModule} from "@angular/material/core";
+import { WarpMultiSelectComponent } from './biz-form/wrap-mat/warp-multi-select/warp-multi-select.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import {MatOptionModule} from "@angular/material/core";
     BizFormComponent,
     WrapMatInputComponent,
     WrapChiplistInputComponent,
-    WrapMatAutoCompleteComponent
+    WrapMatAutoCompleteComponent,
+    WarpMultiSelectComponent
   ],
   imports: [
     CommonModule,
@@ -53,6 +56,7 @@ import {MatOptionModule} from "@angular/material/core";
     MatAutocompleteModule,
     MatAutocompleteModule,
     MatOptionModule,
+    ReactiveFormsModule,
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
@@ -63,7 +67,8 @@ import {MatOptionModule} from "@angular/material/core";
     BizAppFrameComponent,
     WrapMatInputComponent,
     WrapChiplistInputComponent,
-    WrapMatAutoCompleteComponent
+    WrapMatAutoCompleteComponent,
+    WarpMultiSelectComponent
   ]
 })
 export class BizUiModule { }
