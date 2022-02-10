@@ -12,11 +12,11 @@ interface OptionData{
   displayText:string
 }
 @Component({
-  selector: 'wrap-multi-select',
-  templateUrl: './wrap-multi-select.component.html',
-  styleUrls: ['./wrap-multi-select.component.css']
+  selector: 'wrap-multi-search-select',
+  templateUrl: './wrap-multi-search-select.component.html',
+  styleUrls: ['./wrap-multi-search-select.component.scss']
 })
-export class WrapMultiSelectComponent extends WrapBaseComponent implements OnInit,  AfterViewInit {
+export class WrapMultiSearchSelectComponent extends WrapBaseComponent implements OnInit,  AfterViewInit {
   selectable = true;
   removable = true;
   addOnBlur = true;

@@ -25,7 +25,6 @@ import {MatInputModule} from "@angular/material/input";
 import { WrapMatAutoCompleteComponent } from './biz-form/wrap-mat/wrap-mat-auto-complete/wrap-mat-auto-complete.component';
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MAT_DATE_FORMATS, MAT_DATE_LOCALE, MatOptionModule} from "@angular/material/core";
-import { WrapMultiSelectComponent } from './biz-form/wrap-mat/wrap-multi-select/wrap-multi-select.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { WrapDatePickerComponent } from './biz-form/wrap-mat/wrap-date-picker/wrap-date-picker.component';
 import {MatDatepickerModule} from "@angular/material/datepicker";
@@ -33,6 +32,7 @@ import {
   NgxMatDatetimePickerModule
 } from "@angular-material-components/datetime-picker";
 import {WrapDateSpanPickerComponent} from "./biz-form/wrap-mat/wrap-date-span-picker/wrap-date-span-picker.component";
+import {WrapMultiSearchSelectComponent} from "./biz-form/wrap-mat/wrap-multi-search-select/wrap-multi-search-select.component";
 
 
 
@@ -45,7 +45,7 @@ import {WrapDateSpanPickerComponent} from "./biz-form/wrap-mat/wrap-date-span-pi
     WrapMatInputComponent,
     WrapChiplistInputComponent,
     WrapMatAutoCompleteComponent,
-    WrapMultiSelectComponent,
+    WrapMultiSearchSelectComponent,
     WrapDatePickerComponent,
     WrapDateSpanPickerComponent
   ],
@@ -81,7 +81,7 @@ import {WrapDateSpanPickerComponent} from "./biz-form/wrap-mat/wrap-date-span-pi
     WrapMatInputComponent,
     WrapChiplistInputComponent,
     WrapMatAutoCompleteComponent,
-    WrapMultiSelectComponent,
+    WrapMultiSearchSelectComponent,
     WrapDatePickerComponent,
     WrapDateSpanPickerComponent
   ]

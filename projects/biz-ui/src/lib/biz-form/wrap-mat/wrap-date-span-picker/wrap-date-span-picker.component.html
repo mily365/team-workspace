@@ -6,6 +6,9 @@
   <mat-hint class="mat-error"  *ngIf="(ngControl?.dirty || ngControl?.touched) && ngControl?.hasError('required')">
     {{errorMsg('required') | async}}
   </mat-hint>
+  <mat-hint class="mat-error" *ngIf="isSpanException">
+    日期范围超出结束时间
+  </mat-hint>
   <mat-datepicker-toggle matSuffix [for]="$any(pickerStart)"></mat-datepicker-toggle>
   <ngx-mat-datetime-picker #pickerStart [showSpinners]="showSpinners" [showSeconds]="showSeconds"
                            [stepHour]="stepHour"

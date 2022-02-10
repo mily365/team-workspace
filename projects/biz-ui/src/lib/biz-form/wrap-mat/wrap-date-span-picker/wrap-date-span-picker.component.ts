@@ -4,6 +4,7 @@ import {FormControl, NgControl} from "@angular/forms";
 import {BizDataService} from "../../../biz-data.service";
 import * as moment from 'moment';
 import {DateAdapter, ThemePalette} from "@angular/material/core";
+import {timer} from "rxjs";
 export interface DateSpan{
   startDate:Date
   endDate:Date
@@ -39,10 +40,10 @@ export class WrapDateSpanPickerComponent  extends WrapBaseComponent implements  
   public color: ThemePalette = 'primary';
   public formCtlStart:FormControl
   public formCtlEnd:FormControl
+  public isSpanException:boolean=false
   constructor(@Optional() @Self() public ngControl: NgControl,public bizDataServe:BizDataService,private _adapter: DateAdapter<any>) {
     super(ngControl,bizDataServe)
   }
-
   ngOnInit(): void {
     //this._adapter.setLocale("cn-ZH")
     this.formCtlStart=new FormControl()
@@ -50,6 +51,15 @@ export class WrapDateSpanPickerComponent  extends WrapBaseComponent implements  
       let cv=this.value as DateSpan
       cv.startDate=value
       cv.endDate=cv.endDate
+      if(cv.endDate){
+        if(cv.endDate<cv.startDate){
+          this.formCtlStart.setValue(null)
+          this.isSpanException=true
+          return
+        }else {
+          this.isSpanException=false
+        }
+      }
       this.onChange(this.value)
     })
     this.formCtlEnd=new FormControl()
@@ -57,6 +67,15 @@ export class WrapDateSpanPickerComponent  extends WrapBaseComponent implements  
       let cv=this.value as DateSpan
       cv.endDate=value
       cv.startDate=cv.startDate
+      if(cv.startDate){
+        if(cv.endDate<cv.startDate){
+          this.formCtlEnd.setValue(null)
+          this.isSpanException=true
+          return
+        }else{
+          this.isSpanException=false
+        }
+      }
       this.onChange(this.value)
     })
   }

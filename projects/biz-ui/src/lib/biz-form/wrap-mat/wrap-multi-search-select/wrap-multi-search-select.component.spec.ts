@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WrapMultiSelectComponent } from './wrap-multi-select.component';
+import { WrapMultiSearchSelectComponent } from './wrap-multi-search-select.component';
 
 describe('WarpMultiSelectComponent', () => {
-  let component: WrapMultiSelectComponent;
-  let fixture: ComponentFixture<WrapMultiSelectComponent>;
+  let component: WrapMultiSearchSelectComponent;
+  let fixture: ComponentFixture<WrapMultiSearchSelectComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WrapMultiSelectComponent ]
+      declarations: [ WrapMultiSearchSelectComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WrapMultiSelectComponent);
+    fixture = TestBed.createComponent(WrapMultiSearchSelectComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
