@@ -1,0 +1,6 @@
+<div>
+  <mat-button-toggle-group (change)="selChange($event)" [formControl]="formCtl" aria-label="Font Style" [multiple]="isMulti">
+    <mat-button-toggle *ngFor="let op of filteredOptions | async" [value]="op.key">{{op.displayText}}</mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+

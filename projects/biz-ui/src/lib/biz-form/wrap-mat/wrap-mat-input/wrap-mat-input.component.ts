@@ -73,4 +73,7 @@ export class WrapMatInputComponent extends WrapBaseComponent implements  AfterVi
       })
     }
   }
+  setDisabledState?(isDisabled: boolean): void{
+
+  }
 }

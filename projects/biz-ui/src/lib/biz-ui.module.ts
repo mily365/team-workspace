@@ -33,6 +33,8 @@ import {
 } from "@angular-material-components/datetime-picker";
 import {WrapDateSpanPickerComponent} from "./biz-form/wrap-mat/wrap-date-span-picker/wrap-date-span-picker.component";
 import {WrapMultiSearchSelectComponent} from "./biz-form/wrap-mat/wrap-multi-search-select/wrap-multi-search-select.component";
+import {WrapMultiButtonSelectComponent} from "./biz-form/wrap-mat/wrap-multi-button-select/wrap-multi-button-select.component";
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
 
 
 
@@ -47,7 +49,8 @@ import {WrapMultiSearchSelectComponent} from "./biz-form/wrap-mat/wrap-multi-sea
     WrapMatAutoCompleteComponent,
     WrapMultiSearchSelectComponent,
     WrapDatePickerComponent,
-    WrapDateSpanPickerComponent
+    WrapDateSpanPickerComponent,
+    WrapMultiButtonSelectComponent
   ],
   imports: [
     CommonModule,
@@ -70,6 +73,7 @@ import {WrapMultiSearchSelectComponent} from "./biz-form/wrap-mat/wrap-multi-sea
     ReactiveFormsModule,
     NgxMatDatetimePickerModule,
     MatDatepickerModule,
+    MatButtonToggleModule,
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
@@ -83,7 +87,8 @@ import {WrapMultiSearchSelectComponent} from "./biz-form/wrap-mat/wrap-multi-sea
     WrapMatAutoCompleteComponent,
     WrapMultiSearchSelectComponent,
     WrapDatePickerComponent,
-    WrapDateSpanPickerComponent
+    WrapDateSpanPickerComponent,
+    WrapMultiButtonSelectComponent
   ]
 })
 export class BizUiModule { }

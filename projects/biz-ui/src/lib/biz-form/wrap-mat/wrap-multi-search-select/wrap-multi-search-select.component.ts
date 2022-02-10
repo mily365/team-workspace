@@ -101,5 +101,7 @@ export class WrapMultiSearchSelectComponent extends WrapBaseComponent implements
       })
     }
   }
+  setDisabledState?(isDisabled: boolean): void{
 
+  }
 }

@@ -107,5 +107,8 @@ export class WrapMatAutoCompleteComponent  extends WrapBaseComponent implements 
       })
     }
   }
+  setDisabledState?(isDisabled: boolean): void{
+
+  }
 
 }

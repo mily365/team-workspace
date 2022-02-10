@@ -41,4 +41,5 @@ export abstract class WrapBaseComponent implements ComponentDataInterface, Contr
        return this.bizDataServe.fetchErrorMsg(errCode,lang)
          .pipe(map(item=>{return item.replace("{}",toReplace)}))
     }
+    abstract setDisabledState?(isDisabled: boolean): void;
 }

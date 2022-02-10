@@ -1,5 +1,5 @@
 <div>
-  <mat-form-field class="multi-select-fullwidth">
+  <mat-form-field class="multi-select-fullwidth" appearance="standard" floatLabel="never">
     <mat-label>{{label}}</mat-label>
     <mat-chip-list #chipList aria-label="Fruit selection">
       <mat-chip *ngFor="let chipData of selectedOptionTexts" [selectable]="selectable"

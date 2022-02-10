@@ -60,5 +60,8 @@ export class WrapChiplistInputComponent extends WrapBaseComponent implements OnI
       })
     }
   }
+  setDisabledState?(isDisabled: boolean): void{
+
+  }
 
 }

@@ -32,7 +32,6 @@ export class WrapDatePickerComponent  extends WrapBaseComponent implements  Afte
   constructor(@Optional() @Self() public ngControl: NgControl,public bizDataServe:BizDataService,private _adapter: DateAdapter<any>) {
     super(ngControl,bizDataServe)
   }
-
   ngOnInit(): void {
     //this._adapter.setLocale("cn-ZH")
     this.formCtl=new FormControl()
@@ -54,5 +53,9 @@ export class WrapDatePickerComponent  extends WrapBaseComponent implements  Afte
         this.formCtl.setValue(this.value)
       })
     }
+  }
+  setDisabledState?(isDisabled: boolean): void{
+    console.log("isDisabled...........................................")
+    this.disabled=isDisabled
   }
 }

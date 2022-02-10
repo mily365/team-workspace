@@ -103,4 +103,7 @@ export class WrapDateSpanPickerComponent  extends WrapBaseComponent implements  
 
     }
   }
+  setDisabledState?(isDisabled: boolean): void{
+
+  }
 }
