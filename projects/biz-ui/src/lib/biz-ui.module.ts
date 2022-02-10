@@ -30,26 +30,10 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { WrapDatePickerComponent } from './biz-form/wrap-mat/wrap-date-picker/wrap-date-picker.component';
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {
-  NgxMatDateAdapter,
-  NgxMatDateFormats,
   NgxMatDatetimePickerModule
 } from "@angular-material-components/datetime-picker";
-import {
-  CustomNgxDatetimeAdapter,
-  MAT_MOMENT_DATE_ADAPTER_OPTIONS
-} from "./biz-form/wrap-mat/wrap-date-picker/custom-moment-adapter";
-import {NGX_MAT_MOMENT_DATE_ADAPTER_OPTIONS} from "@angular-material-components/moment-adapter";
-const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
-  parse: {
-    dateInput: 'l, LTS'
-  },
-  display: {
-    dateInput: 'YYYY-MM-DD HH:mm:ss',
-    monthYearLabel: 'MMM YYYY',
-    dateA11yLabel: 'LL',
-    monthYearA11yLabel: 'MMMM YYYY',
-  }
-};
+
+
 
 
 @NgModule({
@@ -97,14 +81,6 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     WrapMatAutoCompleteComponent,
     WrapMultiSelectComponent,
     WrapDatePickerComponent
-  ],
-  providers:[
-    {
-      provide: NgxMatDateAdapter,
-      useClass: CustomNgxDatetimeAdapter,
-      deps: [MAT_DATE_LOCALE, NGX_MAT_MOMENT_DATE_ADAPTER_OPTIONS]
-    },
-    {provide: MAT_DATE_FORMATS, useValue: CUSTOM_DATE_FORMATS },
   ]
 })
 export class BizUiModule { }

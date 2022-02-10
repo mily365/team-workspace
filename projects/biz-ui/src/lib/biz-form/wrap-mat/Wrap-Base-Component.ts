@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, Input, OnChanges, OnDestroy, OnInit, Optional, Self} from "@angular/core";
-import {ControlValueAccessor, NgControl} from "@angular/forms";
+import {ControlValueAccessor, FormControl, NgControl} from "@angular/forms";
 import {ComponentDataInterface} from "../../common/util/util-container/com-data";
 import {UtilDecorators} from "../../common/util/util-descriptor/bizdescriptors";
 import {BizDataService} from "../../biz-data.service";
@@ -20,6 +20,7 @@ export abstract class WrapBaseComponent implements ComponentDataInterface, Contr
     onChange: (_: any) => {};
     onTouch: () => {};
     protected constructor(public ngControl:NgControl,public bizDataServe:BizDataService) {
+
       if (this.ngControl != null) {
         // Setting the value accessor directly (instead of using
         // the providers) to avoid running into a circular import.
