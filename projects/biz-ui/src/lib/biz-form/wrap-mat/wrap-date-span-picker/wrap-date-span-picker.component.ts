@@ -20,11 +20,16 @@ export class WrapDateSpanPickerComponent  extends WrapBaseComponent implements  
   public showSeconds = false;
   @Input()
   public touchUi = false;
-  @Input()
-  public placeHolder:string
-  @Input()
-  public label:string
 
+  @Input()
+  public placeHolderStart:string
+  @Input()
+  public placeHolderEnd:string
+
+  @Input()
+  public labelStart:string
+  @Input()
+  public labelEnd:string
   public enableMeridian = false;
   public minDate: moment.Moment;
   public maxDate: moment.Moment;

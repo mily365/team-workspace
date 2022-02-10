@@ -1,7 +1,7 @@
 <div>
 <mat-form-field appearance="standard" floatLabel="never">
-  <mat-label>{{label}}</mat-label>
-  <input matInput [ngxMatDatetimePicker]="pickerStart" [formControl]="formCtlStart"  [placeholder]="placeHolder"
+  <mat-label>{{labelStart}}</mat-label>
+  <input matInput [ngxMatDatetimePicker]="pickerStart" [formControl]="formCtlStart"  [placeholder]="placeHolderStart"
          [min]="minDate" [max]="maxDate" [disabled]="disabled">
   <mat-hint class="mat-error"  *ngIf="(ngControl?.dirty || ngControl?.touched) && ngControl?.hasError('required')">
     {{errorMsg('required') | async}}
@@ -16,8 +16,8 @@
   </ngx-mat-datetime-picker>
 </mat-form-field>
 <mat-form-field appearance="standard" floatLabel="never">
-  <mat-label>{{label}}</mat-label>
-  <input matInput [ngxMatDatetimePicker]="pickerEnd" [formControl]="formCtlEnd"  [placeholder]="placeHolder"
+  <mat-label>{{labelEnd}}</mat-label>
+  <input matInput [ngxMatDatetimePicker]="pickerEnd" [formControl]="formCtlEnd"  [placeholder]="placeHolderEnd"
          [min]="minDate" [max]="maxDate" [disabled]="disabled">
   <mat-hint class="mat-error"  *ngIf="(ngControl?.dirty || ngControl?.touched) && ngControl?.hasError('required')">
     {{errorMsg('required') | async}}
