@@ -17,6 +17,10 @@ export class WrapDatePickerComponent  extends WrapBaseComponent implements  Afte
   @Input()
   public touchUi = false;
   @Input()
+  public placeHolder:string
+  @Input()
+  public label:string
+
   public enableMeridian = false;
   public minDate: moment.Moment;
   public maxDate: moment.Moment;
@@ -50,7 +54,5 @@ export class WrapDatePickerComponent  extends WrapBaseComponent implements  Afte
         this.formCtl.setValue(this.value)
       })
     }
-
   }
-
 }

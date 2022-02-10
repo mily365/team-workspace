@@ -32,6 +32,7 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {
   NgxMatDatetimePickerModule
 } from "@angular-material-components/datetime-picker";
+import {WrapDateSpanPickerComponent} from "./biz-form/wrap-mat/wrap-date-span-picker/wrap-date-span-picker.component";
 
 
 
@@ -45,7 +46,8 @@ import {
     WrapChiplistInputComponent,
     WrapMatAutoCompleteComponent,
     WrapMultiSelectComponent,
-    WrapDatePickerComponent
+    WrapDatePickerComponent,
+    WrapDateSpanPickerComponent
   ],
   imports: [
     CommonModule,
@@ -80,7 +82,8 @@ import {
     WrapChiplistInputComponent,
     WrapMatAutoCompleteComponent,
     WrapMultiSelectComponent,
-    WrapDatePickerComponent
+    WrapDatePickerComponent,
+    WrapDateSpanPickerComponent
   ]
 })
 export class BizUiModule { }

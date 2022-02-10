@@ -1,0 +1,34 @@
+<div>
+<mat-form-field appearance="standard" floatLabel="never">
+  <mat-label>{{label}}</mat-label>
+  <input matInput [ngxMatDatetimePicker]="pickerStart" [formControl]="formCtlStart"  [placeholder]="placeHolder"
+         [min]="minDate" [max]="maxDate" [disabled]="disabled">
+  <mat-hint class="mat-error"  *ngIf="(ngControl?.dirty || ngControl?.touched) && ngControl?.hasError('required')">
+    {{errorMsg('required') | async}}
+  </mat-hint>
+  <mat-datepicker-toggle matSuffix [for]="$any(pickerStart)"></mat-datepicker-toggle>
+  <ngx-mat-datetime-picker #pickerStart [showSpinners]="showSpinners" [showSeconds]="showSeconds"
+                           [stepHour]="stepHour"
+                           [stepMinute]="stepMinute"
+                           [stepSecond]="stepSecond"
+                           [touchUi]="touchUi"
+                           [enableMeridian]="enableMeridian">
+  </ngx-mat-datetime-picker>
+</mat-form-field>
+<mat-form-field appearance="standard" floatLabel="never">
+  <mat-label>{{label}}</mat-label>
+  <input matInput [ngxMatDatetimePicker]="pickerEnd" [formControl]="formCtlEnd"  [placeholder]="placeHolder"
+         [min]="minDate" [max]="maxDate" [disabled]="disabled">
+  <mat-hint class="mat-error"  *ngIf="(ngControl?.dirty || ngControl?.touched) && ngControl?.hasError('required')">
+    {{errorMsg('required') | async}}
+  </mat-hint>
+  <mat-datepicker-toggle matSuffix [for]="$any(pickerEnd)"></mat-datepicker-toggle>
+  <ngx-mat-datetime-picker #pickerEnd [showSpinners]="showSpinners" [showSeconds]="showSeconds"
+                           [stepHour]="stepHour"
+                           [stepMinute]="stepMinute"
+                           [stepSecond]="stepSecond"
+                           [touchUi]="touchUi"
+                           [enableMeridian]="enableMeridian">
+  </ngx-mat-datetime-picker>
+</mat-form-field>
+</div>

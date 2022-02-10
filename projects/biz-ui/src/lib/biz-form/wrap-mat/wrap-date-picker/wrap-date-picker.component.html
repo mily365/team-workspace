@@ -1,5 +1,6 @@
 <mat-form-field appearance="standard" floatLabel="never">
-  <input matInput [ngxMatDatetimePicker]="picker" [formControl]="formCtl"  placeholder="Choose a date"
+  <mat-label>{{label}}</mat-label>
+  <input matInput [ngxMatDatetimePicker]="picker" [formControl]="formCtl"  [placeholder]="placeHolder"
          [min]="minDate" [max]="maxDate" [disabled]="disabled">
   <mat-hint class="mat-error"  *ngIf="(ngControl?.dirty || ngControl?.touched) && ngControl?.hasError('required')">
     {{errorMsg('required') | async}}
