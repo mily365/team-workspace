@@ -20,7 +20,7 @@ import {UtilDecorators} from "../../../common/util/util-descriptor/bizdescriptor
   templateUrl: './wrap-mat-slide-toggle.component.html',
   styleUrls: ['./wrap-mat-slide-toggle.component.scss'],
 })
-export class WrapMatSlideToggleComponent extends WrapBaseComponent implements  AfterViewInit {
+export class WrapMatSlideToggleComponent extends WrapBaseComponent implements  OnInit,AfterViewInit {
   @UtilDecorators.GetSet()
   @Input()
   value:any
@@ -31,6 +31,10 @@ export class WrapMatSlideToggleComponent extends WrapBaseComponent implements  A
   constructor(private _autofill: AutofillMonitor,@Optional() @Self() public ngControl: NgControl,public bizDataServe:BizDataService) {
     // Replace the provider from above with this.
      super(ngControl,bizDataServe)
+
+  }
+  ngOnInit(): void {
+    this.formCtl=new FormControl()
   }
   ngAfterViewInit(): void {
 
@@ -54,4 +58,6 @@ export class WrapMatSlideToggleComponent extends WrapBaseComponent implements  A
   setDisabledState?(isDisabled: boolean): void{
      this.disabled=isDisabled
   }
+
+
 }

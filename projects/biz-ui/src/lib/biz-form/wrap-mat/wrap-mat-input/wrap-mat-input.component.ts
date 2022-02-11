@@ -32,6 +32,8 @@ export class WrapMatInputComponent extends WrapBaseComponent implements  AfterVi
   @UtilDecorators.GetSet()
   @Input()
   value:any
+  @Input()
+  isNumberType:boolean=false
   // @ViewChild('inputRef') inputRef:ElementRef;
   @Input() placeHolder:string
   @Input() label:string

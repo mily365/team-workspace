@@ -1,6 +1,15 @@
 <mat-form-field appearance="standard" floatLabel="never">
   <mat-label>{{label}}</mat-label>
-  <input matInput #inputRef [placeholder]="placeHolder"   (cdkAutofill)="inputCtlAutoFilled = $event.isAutofilled">
+  <input *ngIf="!isNumberType;else numberInput;" matInput #inputRef [placeholder]="placeHolder"   (cdkAutofill)="inputCtlAutoFilled = $event.isAutofilled">
+  <ng-template  #numberInput>
+    <input type="number" matInput #inputRef [placeholder]="placeHolder"   (cdkAutofill)="inputCtlAutoFilled = $event.isAutofilled">
+  </ng-template>
+  <mat-hint class="mat-error"  *ngIf="(ngControl?.dirty || ngControl?.touched) && ngControl?.hasError('max')">
+    {{ngControl.errors | json }}
+  </mat-hint>
+  <mat-hint class="mat-error"  *ngIf="(ngControl?.dirty || ngControl?.touched) && ngControl?.hasError('required')">
+    {{errorMsg('required') | async}}
+  </mat-hint>
   <mat-hint class="mat-error"  *ngIf="(ngControl?.dirty || ngControl?.touched) && ngControl?.hasError('required')">
     {{errorMsg('required') | async}}
   </mat-hint>
