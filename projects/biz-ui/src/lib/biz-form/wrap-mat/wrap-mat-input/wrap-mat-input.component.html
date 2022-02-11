@@ -4,16 +4,16 @@
   <ng-template  #numberInput>
     <input type="number" matInput #inputRef [placeholder]="placeHolder"   (cdkAutofill)="inputCtlAutoFilled = $event.isAutofilled">
   </ng-template>
-  <mat-hint class="mat-error"  *ngIf="(ngControl?.dirty || ngControl?.touched) && ngControl?.hasError('max')">
-    {{ngControl.errors | json }}
+  <mat-hint class="mat-error"  *ngIf="isNumberType && (ngControl?.dirty || ngControl?.touched) && ngControl?.hasError('max')">
+    {{errorMsg('max',ngControl.getError('max')['max']) | async}}
+  </mat-hint>
+  <mat-hint class="mat-error"  *ngIf="isNumberType && (ngControl?.dirty || ngControl?.touched) && ngControl?.hasError('min')">
+    {{errorMsg('min',ngControl.getError('min')['min']) | async}}
   </mat-hint>
   <mat-hint class="mat-error"  *ngIf="(ngControl?.dirty || ngControl?.touched) && ngControl?.hasError('required')">
     {{errorMsg('required') | async}}
   </mat-hint>
-  <mat-hint class="mat-error"  *ngIf="(ngControl?.dirty || ngControl?.touched) && ngControl?.hasError('required')">
-    {{errorMsg('required') | async}}
-  </mat-hint>
-  <mat-hint class="mat-error"  *ngIf="(ngControl?.dirty || ngControl?.touched) && ngControl?.hasError('minlength')">
+  <mat-hint class="mat-error"  *ngIf="!isNumberType && (ngControl?.dirty || ngControl?.touched) && ngControl?.hasError('minlength')">
 <!--    字符最少长度是{{ngControl.getError('minlength')['requiredLength']}}-->
       {{errorMsg('minlength',ngControl.getError('minlength')['requiredLength']) | async}}
   </mat-hint>

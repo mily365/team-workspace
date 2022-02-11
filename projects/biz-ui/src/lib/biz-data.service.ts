@@ -137,7 +137,9 @@ export class BizDataService {
      let msgList:{}= {
       "zh-CN": {
         "minlength":"最少需要{}个字符",
-        "required":"不能为空"
+        "required":"不能为空",
+        "max":"不能最大值{}",
+        "min":"不能小于最小值{}"
       }
     }
     // @ts-ignore
