@@ -5,6 +5,7 @@ export * from './lib/biz-app-frame/biz-app-frame.component'
 export * from './lib/biz-table/biz-table.component';
 export * from './lib/biz-form/wrap-mat/wrap-chiplist-input/wrap-chiplist-input.component';
 export * from './lib/biz-form/wrap-mat/wrap-mat-input/wrap-mat-input.component';
+export * from './lib/biz-form/wrap-mat/wrap-mat-slide-toggle/wrap-mat-slide-toggle.component';
 export * from './lib/biz-form/wrap-mat/wrap-mat-auto-complete/wrap-mat-auto-complete.component';
 export * from './lib/biz-form/wrap-mat/wrap-multi-search-select/wrap-multi-search-select.component';
 export * from './lib/biz-form/wrap-mat/wrap-multi-button-select/wrap-multi-button-select.component';

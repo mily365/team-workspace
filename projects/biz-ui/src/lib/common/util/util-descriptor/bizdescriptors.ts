@@ -13,7 +13,7 @@ export class UtilDecorators {
       Object.defineProperty(target, propertyName, {
         set(value: any) {
           if (value != realValue) {
-            console.log("set is called.....")
+            console.log("set is called.....",value)
             realValue = value;
           }
         },

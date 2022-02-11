@@ -5,6 +5,7 @@ import {debounceTime, map, pluck, startWith, switchMap, tap} from "rxjs/operator
 import {WrapBaseComponent} from "../Wrap-Base-Component";
 import {BizDataService} from "../../../biz-data.service";
 import {MatButtonToggleChange} from "@angular/material/button-toggle";
+import {UtilDecorators} from "../../../common/util/util-descriptor/bizdescriptors";
 interface OptionData{
   key:string
   displayText:string
@@ -15,6 +16,9 @@ interface OptionData{
   styleUrls: ['./wrap-multi-button-select.component.scss']
 })
 export class WrapMultiButtonSelectComponent extends WrapBaseComponent implements OnInit,  AfterViewInit {
+  @UtilDecorators.GetSet()
+  @Input()
+  value:any
   filteredOptions:Observable<OptionData[]>
   selectedOptionValueToText:Map<string,string>
   @Input() label:string

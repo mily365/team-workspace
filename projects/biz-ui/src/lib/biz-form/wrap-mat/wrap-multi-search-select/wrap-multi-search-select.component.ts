@@ -7,6 +7,7 @@ import {debounceTime, map, pluck, startWith, switchMap, tap} from "rxjs/operator
 import {MatChipInputEvent} from "@angular/material/chips";
 import {WrapBaseComponent} from "../Wrap-Base-Component";
 import {BizDataService} from "../../../biz-data.service";
+import {UtilDecorators} from "../../../common/util/util-descriptor/bizdescriptors";
 interface OptionData{
   key:string
   displayText:string
@@ -17,6 +18,9 @@ interface OptionData{
   styleUrls: ['./wrap-multi-search-select.component.scss']
 })
 export class WrapMultiSearchSelectComponent extends WrapBaseComponent implements OnInit,  AfterViewInit {
+  @UtilDecorators.GetSet()
+  @Input()
+  value:any
   selectable = true;
   removable = true;
   addOnBlur = true;

@@ -9,6 +9,7 @@ import {flatMap} from "rxjs/internal/operators";
 import {BizDataService} from "../../../biz-data.service";
 import {MatChipInputEvent} from "@angular/material/chips";
 import {COMMA, ENTER} from "@angular/cdk/keycodes";
+import {UtilDecorators} from "../../../common/util/util-descriptor/bizdescriptors";
 
 interface OptionData{
   key:string
@@ -20,6 +21,10 @@ interface OptionData{
   styleUrls: ['./wrap-mat-auto-complete.component.css']
 })
 export class WrapMatAutoCompleteComponent  extends WrapBaseComponent implements  AfterViewInit,OnInit {
+  @UtilDecorators.GetSet()
+  @Input()
+  value:any
+
   filteredOptions:Observable<OptionData[]>
   @ViewChild('inputRef') inputCtlRef: ElementRef;
   @Input()

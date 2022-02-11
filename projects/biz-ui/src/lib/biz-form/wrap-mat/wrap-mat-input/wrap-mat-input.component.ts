@@ -12,6 +12,7 @@ import {AutofillMonitor} from "@angular/cdk/text-field";
 import {ControlValueAccessor, NG_VALUE_ACCESSOR, NgControl} from "@angular/forms";
 import {WrapBaseComponent} from "../Wrap-Base-Component";
 import {BizDataService} from "../../../biz-data.service";
+import {UtilDecorators} from "../../../common/util/util-descriptor/bizdescriptors";
 
 
 
@@ -28,6 +29,9 @@ import {BizDataService} from "../../../biz-data.service";
   // providers: [BIZ_INPUT_VALUE_ACCESSOR]
 })
 export class WrapMatInputComponent extends WrapBaseComponent implements  AfterViewInit, OnDestroy, OnChanges {
+  @UtilDecorators.GetSet()
+  @Input()
+  value:any
   // @ViewChild('inputRef') inputRef:ElementRef;
   @Input() placeHolder:string
   @Input() label:string

@@ -4,6 +4,7 @@ import {WrapBaseComponent} from "../Wrap-Base-Component";
 import {COMMA, ENTER} from "@angular/cdk/keycodes";
 import {MatChipInputEvent} from "@angular/material/chips";
 import {BizDataService} from "../../../biz-data.service";
+import {UtilDecorators} from "../../../common/util/util-descriptor/bizdescriptors";
 
 @Component({
   selector: 'app-wrap-chiplist-input',
@@ -11,6 +12,10 @@ import {BizDataService} from "../../../biz-data.service";
   styleUrls: ['./wrap-chiplist-input.component.scss']
 })
 export class WrapChiplistInputComponent extends WrapBaseComponent implements OnInit {
+  @UtilDecorators.GetSet()
+  @Input()
+  value:any
+
   selectable = true;
   removable = true;
   addOnBlur = true;

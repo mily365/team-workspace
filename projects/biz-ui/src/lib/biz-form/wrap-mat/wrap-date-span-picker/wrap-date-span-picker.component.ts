@@ -5,6 +5,7 @@ import {BizDataService} from "../../../biz-data.service";
 import * as moment from 'moment';
 import {DateAdapter, ThemePalette} from "@angular/material/core";
 import {timer} from "rxjs";
+import {UtilDecorators} from "../../../common/util/util-descriptor/bizdescriptors";
 export interface DateSpan{
   startDate:Date
   endDate:Date
@@ -15,6 +16,11 @@ export interface DateSpan{
   styleUrls: ['./wrap-date-span-picker.component.scss']
 })
 export class WrapDateSpanPickerComponent  extends WrapBaseComponent implements  AfterViewInit {
+
+  @UtilDecorators.GetSet()
+  @Input()
+  value:any
+
   public date: moment.Moment;
   public disabled = false;
   public showSpinners = true;

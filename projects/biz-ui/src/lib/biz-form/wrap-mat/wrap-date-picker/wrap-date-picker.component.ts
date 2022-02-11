@@ -4,12 +4,16 @@ import {FormControl, NgControl} from "@angular/forms";
 import {BizDataService} from "../../../biz-data.service";
 import * as moment from 'moment';
 import {DateAdapter, ThemePalette} from "@angular/material/core";
+import {UtilDecorators} from "../../../common/util/util-descriptor/bizdescriptors";
 @Component({
   selector: 'wrap-date-picker',
   templateUrl: './wrap-date-picker.component.html',
   styleUrls: ['./wrap-date-picker.component.scss']
 })
 export class WrapDatePickerComponent  extends WrapBaseComponent implements  AfterViewInit {
+  @UtilDecorators.GetSet()
+  @Input()
+  value:any
   public date: moment.Moment;
   public disabled = false;
   public showSpinners = true;

@@ -12,9 +12,6 @@ import {map} from "rxjs/operators";
   template: ''
 })
 export abstract class WrapBaseComponent implements ComponentDataInterface, ControlValueAccessor{
-    @UtilDecorators.GetSet()
-    @Input()
-    value:any
     @Input()
     data: any;
     onChange: (_: any) => {};
