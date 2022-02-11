@@ -37,6 +37,8 @@ import {WrapMultiButtonSelectComponent} from "./biz-form/wrap-mat/wrap-multi-but
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {WrapMatSlideToggleComponent} from "./biz-form/wrap-mat/wrap-mat-slide-toggle/wrap-mat-slide-toggle.component";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {WrapRadioSelectComponent} from "./biz-form/wrap-mat/wrap-radio-select/wrap-radio-select.component";
+import {MatRadioModule} from "@angular/material/radio";
 
 
 
@@ -53,7 +55,8 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
     WrapDatePickerComponent,
     WrapDateSpanPickerComponent,
     WrapMultiButtonSelectComponent,
-    WrapMatSlideToggleComponent
+    WrapMatSlideToggleComponent,
+    WrapRadioSelectComponent
   ],
   imports: [
     CommonModule,
@@ -78,6 +81,7 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
     MatDatepickerModule,
     MatButtonToggleModule,
     MatSlideToggleModule,
+    MatRadioModule,
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
@@ -93,7 +97,8 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
     WrapDatePickerComponent,
     WrapDateSpanPickerComponent,
     WrapMultiButtonSelectComponent,
-    WrapMatSlideToggleComponent
+    WrapMatSlideToggleComponent,
+    WrapRadioSelectComponent
   ]
 })
 export class BizUiModule { }

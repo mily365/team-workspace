@@ -6,52 +6,44 @@ import {WrapBaseComponent} from "../Wrap-Base-Component";
 import {BizDataService} from "../../../biz-data.service";
 import {MatButtonToggleChange} from "@angular/material/button-toggle";
 import {UtilDecorators} from "../../../common/util/util-descriptor/bizdescriptors";
+import {MatRadioChange} from "@angular/material/radio";
 interface OptionData{
   key:string
   displayText:string
 }
 @Component({
-  selector: 'wrap-multi-button-select',
-  templateUrl: './wrap-multi-button-select.component.html',
-  styleUrls: ['./wrap-multi-button-select.component.scss']
+  selector: 'wrap-radio-select',
+  templateUrl: './wrap-radio-select.component.html',
+  styleUrls: ['./wrap-radio-select.component.scss']
 })
-export class WrapMultiButtonSelectComponent extends WrapBaseComponent implements OnInit,  AfterViewInit {
+export class WrapRadioSelectComponent extends WrapBaseComponent implements OnInit,  AfterViewInit {
   @UtilDecorators.GetSet()
   @Input()
   value:any
   @Input()
-
+  radioCanSelects:OptionData[]=[]
   filteredOptions:Observable<OptionData[]>
   selectedOptionValueToText:Map<string,string>
   @Input() label:string
-  @Input() isMulti:boolean=false
-  formCtl:FormControl
+
   constructor(@Optional() @Self() public ngControl: NgControl,public bizDataServe:BizDataService) {
     super(ngControl,bizDataServe)
   }
   ngOnInit(): void {
     //this.chipListData=this.data.split(",");
     this.selectedOptionValueToText=new Map<string, string>()
-    this.formCtl=new FormControl()
     this.fetchData().subscribe(items=>{
       items.forEach(it=>{
+        if(this.radioCanSelects.length==0){
+          this.radioCanSelects.push(it)
+        }
+
         this.selectedOptionValueToText.set(it.key,it.displayText)
       })
-
     })
   }
-  selChange($evt:MatButtonToggleChange){
-    let selOps:string[]=[]
-    if(this.isMulti){
-      let values=$evt.value as Array<string>
-      values.forEach(v=>{
-        selOps.push(v+"_"+this.selectedOptionValueToText.get(v))
-      })
-      let tmp=selOps.join(",")
-      this.value=tmp
-    }else{
-      this.value=$evt.value+"_"+this.selectedOptionValueToText.get($evt.value)
-    }
+  radioChange($evt:MatRadioChange){
+    this.value=$evt.value
     this.onChange(this.value)
   }
   ngAfterViewInit(): void {
@@ -77,14 +69,6 @@ export class WrapMultiButtonSelectComponent extends WrapBaseComponent implements
       //首次加载，先有初始值
       setTimeout(()=>{
         this.value=obj
-        let vs=this.value.split(",") as Array<string>
-        if(vs.length>1){
-          // this.selectedOptionTexts=vs.map(it=>it.split("_")[1])
-          // this.selectedOptionValues=vs
-          this.formCtl.setValue(vs.map(it=>it.split("_")[0]))
-        }else {
-          this.formCtl.setValue(this.value.split("_")[0])
-        }
       })
     }
   }

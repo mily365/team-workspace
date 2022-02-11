@@ -1,0 +1,9 @@
+<div>
+  <label>{{label}}</label>
+  <mat-radio-group [value]="value"  (change)="radioChange($event)"  aria-labelledby="example-radio-group-label">
+    <mat-radio-button class="example-radio-button" *ngFor="let radio of radioCanSelects" [value]="radio.key">
+      {{radio.displayText}}
+    </mat-radio-button>
+  </mat-radio-group>
+</div>
+

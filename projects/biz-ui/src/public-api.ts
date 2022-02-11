@@ -9,6 +9,7 @@ export * from './lib/biz-form/wrap-mat/wrap-mat-slide-toggle/wrap-mat-slide-togg
 export * from './lib/biz-form/wrap-mat/wrap-mat-auto-complete/wrap-mat-auto-complete.component';
 export * from './lib/biz-form/wrap-mat/wrap-multi-search-select/wrap-multi-search-select.component';
 export * from './lib/biz-form/wrap-mat/wrap-multi-button-select/wrap-multi-button-select.component';
+export * from './lib/biz-form/wrap-mat/wrap-radio-select/wrap-radio-select.component';
 export * from './lib/biz-form/wrap-mat/wrap-date-picker/wrap-date-picker.component';
 export * from './lib/biz-form/wrap-mat/wrap-date-span-picker/wrap-date-span-picker.component';
 export * from './lib/biz-form/wrap-mat/wrap-date-picker/custom-moment-adapter';
