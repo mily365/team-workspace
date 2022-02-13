@@ -5,8 +5,8 @@
     "@angular/common": "^12.2.0",
     "@angular/core": "^12.2.0",
     "@angular/material": "^12.2.5",
-    "@angular/platform-browser": "~12.2.0",
-    "@angular/platform-browser-dynamic": "~12.2.0",
+    "@angular/platform-browser": "^12.2.0",
+    "@angular/platform-browser-dynamic": "^12.2.0",
     "@angular-material-components/datetime-picker": "^6.0.3",
     "@angular-material-components/moment-adapter": "^7.0.0",
     "moment": "^2.29.1"
